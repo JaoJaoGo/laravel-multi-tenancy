@@ -18,5 +18,7 @@ class ManagerTenant
         config()->set('database.connections.tenant.password', $company->bd_password);
 
         DB::reconnect('tenant');
+
+        Schema::connection('tenant')->getConnection()->reconnect();
     }
 }
